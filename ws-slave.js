@@ -25,29 +25,18 @@ if (serverMode) {
 
     ws = ws_;
 
+    sendEvent({
+      type: 'stateChange',
+      state: noble.state
+    });
+
     ws.on('message', onMessage);
 
     ws.on('close', function() {
       console.log('ws -> close');
+
       noble.stopScanning();
     });
-
-    noble.on('stateChange', function(state) {
-      sendEvent({
-        type: 'stateChange',
-        state: state
-      });
-    });
-
-    // Send poweredOn if already in this state.
-    if (noble.state == "poweredOn") {
-      sendEvent({
-        type: 'stateChange',
-        state: "poweredOn"
-      });
-    }
-
-
   });
 } else {
   ws = new WebSocket('ws://' + host + ':' + port);

@@ -37,7 +37,7 @@ noble.on('discover', function(peripheral) {
     }
 
     if (serviceData) {
-      console.log('  Service Data      = ' + JSON.stringify(serviceData, null, 2));
+      console.log('  Service Data      = ' + serviceData);
     }
 
     if (serviceUuids) {
@@ -95,11 +95,7 @@ function explore(peripheral) {
                       async.detect(
                         descriptors,
                         function(descriptor, callback) {
-                          if (descriptor.uuid === '2901') {
-                            return callback(descriptor);
-                          } else {
-                            return callback();
-                          }
+                          return callback(descriptor.uuid === '2901');
                         },
                         function(userDescriptionDescriptor){
                           if (userDescriptionDescriptor) {

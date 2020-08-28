@@ -1,13 +1,9 @@
 {
-  "author": "Sandeep Mistry",
-  "maintainers": [
-    "Jacob Rosenthal",
-    "Luis Montes"
-  ],
+  "author": "Sandeep Mistry <sandeep.mistry@gmail.com>",
   "license": "MIT",
   "name": "noble",
   "description": "A Node.js BLE (Bluetooth Low Energy) central library.",
-  "version": "1.9.1",
+  "version": "1.8.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/sandeepmistry/noble.git"
@@ -36,9 +32,9 @@
     "debug": "~2.2.0"
   },
   "optionalDependencies": {
-    "bluetooth-hci-socket": "^0.5.1",
+    "bluetooth-hci-socket": "git+https://github.com/plezmo/node-bluetooth-hci-socket",
     "bplist-parser": "0.0.6",
-    "xpc-connection": "~0.1.4"
+    "xpc-connection": "sandeepmistry/node-xpc-connection#pull/26/head"
   },
   "devDependencies": {
     "jshint": "latest",
